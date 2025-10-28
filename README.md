@@ -147,4 +147,61 @@ for t in [0.1, 0.5, 0.9]:
 <img width="504" height="170" alt="image" src="https://github.com/user-attachments/assets/cc1f5402-703d-400e-a80b-4249fde269d8" />
 
 
+# 🧠 Guía de Instalación y Práctica — Sesión 1 (Notebook) guia 3
+
+
+3. Cargar la clave y crear el cliente
+
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+
+4. Primera consulta: respuesta libre
+
+prompt = "Explica en dos frases qué es la inteligencia artificial en la educación."
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0.7
+)
+
+print(response.choices[0].message.content)
+
+
+
+<img width="1280" height="395" alt="image" src="https://github.com/user-attachments/assets/c80726bf-22de-44c0-a54b-94d335d595cc" />
+
+<img width="1280" height="420" alt="image" src="https://github.com/user-attachments/assets/feea8daf-f737-4c71-a151-2c4541f65fc4" />
+
+<img width="1280" height="409" alt="image" src="https://github.com/user-attachments/assets/90fc4214-0413-4be4-bfc4-822a8645f93b" />
+
+<img width="900" height="388" alt="image" src="https://github.com/user-attachments/assets/4449a1c3-146c-42d3-a48e-9cf0e3b0e621" />
+
+6. Ejemplo de respuesta estructurada en JSON
+
+
+query = "¿Qué es aprendizaje supervisado?"
+schema_instruction = (
+    "Responde en formato JSON con las claves: definition, input, output. "
+    "Proporciona una explicación clara y breve."
+)
+
+response_json = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "user", "content": f"{query}\n\n{schema_instruction}"}
+    ],
+    temperature=0.6
+)
+
+print(response_json.choices[0].message.content)
+
+
+
+
 
