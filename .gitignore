@@ -1,0 +1,7 @@
+# Ignorar todos los archivos .env
+*.env
+*.venv
+
+# (opcional) ignorar variantes comunes
+.env
+.env.*
