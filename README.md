@@ -73,79 +73,35 @@ Salida del modelo: Se obtiene con response.choices[0].message.content
 <img width="921" height="219" alt="image" src="https://github.com/user-attachments/assets/5fdd8bde-6fa6-496e-a5c4-15456b8f6a20" />
 
 
+Guía 2 - Hello World AI en Jupyter Notebook (VS Code)
+Objetivo
+Crear un proyecto de IA desde Visual Studio Code usando Jupyter Notebook.
 
+Requisitos previos
+Visual Studio Code versión 1.85 o superior
 
-📗 Guía 2 — Hello World AI en Jupyter Notebook (VS Code)
-🎯 Objetivo
+Extensiones: Python y Jupyter
 
-Crear un proyecto de IA directamente desde Visual Studio Code, utilizando Jupyter Notebook para interactuar con la API de OpenAI de forma visual e interactiva.
+Python 3.10 o superior
 
-🧩 1. Requisitos previos
+Cuenta y clave API de OpenAI
 
-Visual Studio Code versión 1.85 o superior.
-
-Extensiones instaladas:
-
-🐍 Python (Microsoft)
-
-📓 Jupyter (Microsoft)
-
-Python 3.10 o superior.
-
-Cuenta y clave API de OpenAI.
-
-Conexión a Internet.
-
-🗂️ 2. Crear carpeta del proyecto
-
-Abra VS Code.
-
-Seleccione File > Open Folder...
-
-Cree una carpeta llamada hello_ai_vscode y ábrala.
-
-⚙️ 3. Crear y activar entorno virtual
-
-Presione Ctrl + Shift + P → escriba Python: Create Environment.
-
-Elija tipo Venv y el intérprete Python adecuado.
-
-Espere a que se cree y active el entorno.
-
-VS Code mostrará una notificación indicando el entorno activo en la esquina inferior derecha.
-
-📦 4. Instalar dependencias
-
-Desde el terminal integrado (Ctrl + Ñ):
-
+1. Configuración del entorno
+bash
+# Instalar dependencias
 pip install openai python-dotenv jupyter ipykernel
+
+# Crear kernel personalizado
 python -m ipykernel install --user --name hello_ai_vscode
+2. Configurar clave API
+Crear archivo .env con:
 
-🧾 5. Configurar la clave API (.env)
-
-Cree un archivo .env en la raíz del proyecto.
-
-Agregue su clave API:
-
+text
 OPENAI_API_KEY=tu_clave_aqui
+3. Celdas del Notebook
+Celda 1 - Configuración:
 
-
-Guarde el archivo.
-
-Añada .env a su archivo .gitignore para evitar subirlo a GitHub.
-
-💡 6. Crear el Notebook principal
-
-Ctrl + Shift + P → Jupyter: Create New Jupyter Notebook.
-
-Guárdelo como hello_ai.ipynb.
-
-Seleccione el kernel hello_ai_vscode.
-
-🧱 7. Celdas principales
-
-Celda 1 — Configuración
-
+python
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -153,10 +109,9 @@ from openai import OpenAI
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 print("Cliente OpenAI inicializado correctamente.")
+Celda 2 - Ejemplo Hello World AI:
 
-
-Celda 2 — Ejemplo Hello World AI
-
+python
 prompt = "Escribe un saludo tipo 'Hello World' con un toque creativo de IA."
 resp = client.chat.completions.create(
     model="gpt-4o-mini",
@@ -164,15 +119,15 @@ resp = client.chat.completions.create(
     temperature=0.6
 )
 print(resp.choices[0].message.content)
-
-⚙️ 8. Parámetros importantes de la API
+4. Parámetros importantes de la API
 Parámetro	Descripción
-model	Modelo a utilizar, e.g. gpt-4o-mini
-messages	Lista de mensajes (roles: system, user, assistant)
-temperature	Controla creatividad (0.1–0.3 = precisa; 0.7–1.0 = creativa)
+model	Modelo a utilizar (gpt-4o-mini)
+messages	Lista de mensajes (system, user, assistant)
+temperature	Controla creatividad (0.1-0.3 = precisa; 0.7-1.0 = creativa)
 max_tokens	Límite de tokens generados
 top_p	Alternativa probabilística a temperature
-🧪 9. Ejercicio adicional
+5. Ejercicio adicional
+python
 for t in [0.1, 0.5, 0.9]:
     response = client.chat.completions.create(
         model="gpt-4o-mini",
@@ -182,73 +137,3 @@ for t in [0.1, 0.5, 0.9]:
     )
     print(f"--- temperature={t} ---")
     print(response.choices[0].message.content)
-
-
-Observe cómo cambia el tono de las respuestas con diferentes valores de temperature.
-
-🏁 10. Cierre
-
-El entorno Jupyter dentro de VS Code le permite ejecutar código de IA de forma interactiva, visual y segura.
-En próximas guías aprenderá a generar salidas estructuradas en JSON y crear asistentes docentes personalizados.
-
-🔒 Anexo — Seguridad, .env y limpieza del historial Git
-
-Durante el desarrollo, se detectó una clave API expuesta accidentalmente en el historial de GitHub.
-Para corregirlo y asegurar el repositorio, se aplicó un proceso completo de sanitización y reescritura del historial.
-
-🔍 Problema
-
-GitHub bloqueó el push con el mensaje:
-
-GH013: Push cannot contain secrets — OpenAI API Key detected
-
-🧹 Solución aplicada
-
-Revocar inmediatamente la API key comprometida.
-
-Eliminarla del historial con git-filter-repo:
-
-python -m pip install git-filter-repo
-git filter-repo --invert-paths --paths uno/.env
-
-
-Verificar eliminación:
-
-git log --all --pretty=format:%H --name-only | findstr uno/.env
-
-
-Forzar push al nuevo repositorio:
-
-git push --force origin main
-
-
-Actualizar .gitignore:
-
-echo ".env" >> .gitignore
-git add .gitignore
-git commit -m "Update .gitignore to ignore .env files"
-git push
-
-🧠 Buenas prácticas de seguridad
-
-Nunca subas .env ni archivos con claves o tokens.
-
-Usa variables de entorno o secretos en GitHub Actions si automatizas.
-
-Revoca y regenera claves comprometidas.
-
-Añade reglas de .gitignore globales:
-
-*.env
-.env
-.env.*
-
-🧾 Créditos y referencias
-
-Documentación oficial de OpenAI API
-
-Python-dotenv
-
-VS Code + Jupyter Notebooks
-
-GitHub Secret Scanning
