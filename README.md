@@ -17,12 +17,7 @@ Editor de código (VS Code, Jupyter Notebook, etc.)
 
 1. Creación del entorno virtual
 bash
-# Crear carpeta de trabajo
-mkdir hello_ai
-cd hello_ai
 
-# Crear entorno virtual
-python -m venv venv
 
 # Instalar dependencias necesarias
 pip install openai python-dotenv
