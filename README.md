@@ -73,7 +73,7 @@ Salida del modelo: Se obtiene con response.choices[0].message.content
 <img width="921" height="219" alt="image" src="https://github.com/user-attachments/assets/5fdd8bde-6fa6-496e-a5c4-15456b8f6a20" />
 
 
-Guía 2 - Hello World AI en Jupyter Notebook (VS Code)
+# Guía 2 - Hello World AI en Jupyter Notebook (VS Code)
 Objetivo
 Crear un proyecto de IA desde Visual Studio Code usando Jupyter Notebook.
 
