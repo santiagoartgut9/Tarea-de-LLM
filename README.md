@@ -37,11 +37,6 @@ cd hello_ai
 python -m venv venv
 ```
 
-# Activar el entorno virtual
-# En Windows:
-venv\Scripts\activate
-# En macOS/Linux:
-source venv/bin/activate
 
 # Instalar dependencias necesarias
 ```bash
@@ -120,6 +115,12 @@ Respuesta del modelo:
 
 Ha completado su primera conexión con la API de OpenAI.
 En la siguiente guía se abordará cómo usar Jupyter Notebook dentro de VS Code y cómo estructurar salidas más complejas.
+
+<img width="855" height="452" alt="image" src="https://github.com/user-attachments/assets/d6f52b54-ff94-4f89-954e-a808d2a15bee" />
+<img width="921" height="219" alt="image" src="https://github.com/user-attachments/assets/5fdd8bde-6fa6-496e-a5c4-15456b8f6a20" />
+
+
+
 
 📗 Guía 2 — Hello World AI en Jupyter Notebook (VS Code)
 🎯 Objetivo
