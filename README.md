@@ -137,3 +137,14 @@ for t in [0.1, 0.5, 0.9]:
     )
     print(f"--- temperature={t} ---")
     print(response.choices[0].message.content)
+
+
+<img width="754" height="541" alt="image" src="https://github.com/user-attachments/assets/0c0127a7-f6f1-4ed2-a36c-fc0404a08c4e" />
+<img width="1170" height="555" alt="image" src="https://github.com/user-attachments/assets/ee485dfd-39a9-4851-aa83-278f7331fc93" />
+
+<img width="587" height="83" alt="image" src="https://github.com/user-attachments/assets/48e1a952-e19f-49bb-86f9-5abb9333b89a" />
+
+<img width="504" height="170" alt="image" src="https://github.com/user-attachments/assets/cc1f5402-703d-400e-a80b-4249fde269d8" />
+
+
+
