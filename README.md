@@ -1,8 +1,8 @@
-Guías de Implementación - IA con Python y OpenAI
+# Guías de Implementación - IA con Python y OpenAI
 Profesor: Luis Daniel Benavides Navarro
 Fecha: 22 de octubre de 2025
 
-Guía 1 - Hello World AI con Python y API de OpenAI
+# Guía 1 - Hello World AI con Python y API de OpenAI
 Objetivo
 Introducir los conceptos esenciales para conectarse a un modelo de lenguaje de OpenAI desde Python.
 
