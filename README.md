@@ -1,68 +1,42 @@
-
+Guías de Implementación - IA con Python y OpenAI
 Profesor: Luis Daniel Benavides Navarro
 Fecha: 22 de octubre de 2025
 
-Este documento reúne las Guías 1 y 2 del curso, así como un anexo de seguridad y control de versiones, que describe en detalle el proceso completo para crear, configurar y asegurar un entorno funcional de inteligencia artificial con Python y la API de OpenAI.
-
-📘 Guía 1 — Hello World AI con Python y la API de OpenAI
-🎯 Objetivo
-
+Guía 1 - Hello World AI con Python y API de OpenAI
+Objetivo
 Introducir los conceptos esenciales para conectarse a un modelo de lenguaje de OpenAI desde Python.
-Al finalizar, el estudiante podrá construir un entorno funcional, comprender la estructura básica de la API y ejecutar un ejemplo tipo “Hello World AI”.
 
-🧩 1. Requisitos previos
+Requisitos previos
+Python 3.10 o superior instalado
 
-Antes de comenzar, asegúrese de contar con:
+Cuenta activa en OpenAI
 
-✅ Python 3.10 o superior instalado.
+Conexión a Internet estable
 
-✅ Cuenta activa en OpenAI
-.
+Editor de código (VS Code, Jupyter Notebook, etc.)
 
-✅ Conexión a Internet estable.
-
-✅ Editor de código, como Visual Studio Code o Jupyter Notebook.
-
-🏗️ 2. Creación del entorno virtual
-
-Crear un entorno virtual aísla las dependencias y mantiene tu proyecto limpio.
-
+1. Creación del entorno virtual
+bash
 # Crear carpeta de trabajo
-```bash
 mkdir hello_ai
 cd hello_ai
-```
-# Crear entorno virtual
-```bash
-python -m venv venv
-```
 
+# Crear entorno virtual
+python -m venv venv
 
 # Instalar dependencias necesarias
-```bash
 pip install openai python-dotenv
-```
-🔐 3. Configuración de la clave API
+2. Configuración de la clave API
+Crear archivo .env en la raíz del proyecto:
 
-La API de OpenAI requiere autenticación mediante una clave personal.
-
-Crea un archivo llamado .env en la raíz del proyecto.
-
-Agrega la línea siguiente:
-
+text
 OPENAI_API_KEY=tu_clave_aqui
+Advertencia: Nunca subas este archivo a GitHub. Añádelo siempre a tu .gitignore.
 
+3. Primer script: Hello World AI
+Crear archivo hello_ai.py:
 
-⚠️ Advertencia: Nunca subas este archivo a GitHub.
-Añádelo siempre a tu .gitignore.
-
-Puedes generar una nueva clave en:
-🔗 https://platform.openai.com/account/api-keys
-
-💻 4. Primer script: Hello World AI
-
-Crea un archivo hello_ai.py con el siguiente contenido:
-
+python
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -84,37 +58,21 @@ response = client.chat.completions.create(
 # Mostrar respuesta
 print("Respuesta del modelo:")
 print(response.choices[0].message.content)
-
-🧠 5. Explicación del código
-
-Importaciones: Se usan os, dotenv y openai para manejar la clave API.
-
-load_dotenv(): Carga las variables definidas en .env.
-
-Inicialización del cliente: Establece conexión segura con la API.
-
-prompt: Es la instrucción enviada al modelo.
-
-temperature: Controla la creatividad de la respuesta (0.1 = precisa, 1.0 = creativa).
-
-Salida del modelo: Se obtiene con response.choices[0].message.content.
-
-▶️ 6. Ejecución del programa
-
-Ejecuta el script:
-
+4. Ejecución del programa
+bash
 python hello_ai.py
+5. Explicación del código
+Importaciones: Se usan os, dotenv y openai para manejar la clave API
 
+load_dotenv(): Carga las variables definidas en .env
 
-Ejemplo de salida:
+Inicialización del cliente: Establece conexión segura con la API
 
-Respuesta del modelo:
-¡Hola mundo! Hoy la inteligencia artificial también quiere saludarte.
+prompt: Instrucción enviada al modelo
 
-🧩 7. Conclusión
+temperature: Controla la creatividad (0.1 = precisa, 1.0 = creativa)
 
-Ha completado su primera conexión con la API de OpenAI.
-En la siguiente guía se abordará cómo usar Jupyter Notebook dentro de VS Code y cómo estructurar salidas más complejas.
+Salida del modelo: Se obtiene con response.choices[0].message.content
 
 <img width="855" height="452" alt="image" src="https://github.com/user-attachments/assets/d6f52b54-ff94-4f89-954e-a808d2a15bee" />
 <img width="921" height="219" alt="image" src="https://github.com/user-attachments/assets/5fdd8bde-6fa6-496e-a5c4-15456b8f6a20" />
